@@ -1,0 +1,127 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+<!DOCTYPE html>
+<html>
+<head>
+    @{
+        string scheme = Context.Request.Scheme;
+        string host = Context.Request.Host.Host;
+        string port = Context.Request.Host.Port.ToString();
+        string slug = Context.Request.Path;
+        string url = string.Format("{0}://{1}:{2}{3}", scheme, host, port, slug);
+    }
+    <title>@Html.Raw(ViewData["Title"] as string)</title>
+    <meta name="title" content="@Html.Raw(ViewData["Title"])" />
+    <meta name="description" content="@Html.Raw(ViewData["Desciption"])" />
+    <meta name="keywords" content="@Html.Raw(ViewData["Keyword"])" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="vi">
+    <meta itemprop="homeLocation" content="Vietnam">
+    <meta name="robots" content="noodp">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@Html.Raw(ViewData["Title"])">
+    <meta property="og:description" content="@Html.Raw(ViewData["Desciption"])">
+    <meta property="og:url" content="@url">
+    @if (!String.IsNullOrEmpty(ViewData["Images"] as string))
+    {
+        <meta property="og:image" content="@Html.Raw(ViewData["Images"])" />
+    }
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="@Html.Raw(ViewData["Desciption"])">
+    <meta name="twitter:title" content="@Html.Raw(ViewData["Title"])">
+    <link rel="dns-prefetch" href="//s.w.org/">
+    @*<link rel="alternate" type="application/rss+xml" href="feed/">
+        <link rel="alternate" type="application/rss+xml" href="comments/feed/">*@
+    <link rel="https://api.w.org/" href="wp-json/">
+    <link rel="alternate" href="/" hreflang="vi-vn">
+    <link rel="profile" href="//gmpg.org/xfn/11">
+    <link rel="canonical" href="@url">
+    <link rel="apple-touch-icon" href="/favicon.ico" />
+    <link rel="icon" sizes="192x192" href="/favicon.ico" />
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="~/web/css/custom.css" rel="stylesheet" />
+        <link href="~/web/css/style.css" rel="stylesheet" />
+        <link href="~/web/rs-plugin/css/settings.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Production">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"  asp-append-version="true"/>
+        <link href="~/web/css/custom.min.css" asp-append-version="true" rel="stylesheet" />
+        <link href="~/web/css/style.css" asp-append-version="true" rel="stylesheet" />
+        <link href="~/web/rs-plugin/css/settings.min.css" asp-append-version="true" rel="stylesheet" />
+        <link href="~/css/site.min.css" asp-append-version="true" rel="stylesheet" />
+    </environment>
+    @RenderSection("Style", required: false)
+    @RenderSection("ScriptsHead", required: false)
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body>
+    <div class="container-fluid">
+        @Html.Partial("_HeaderPartial")
+        <section class="content">
+            @RenderBody()
+        </section>
+        @Html.Partial("_FooterPartial")
+    </div>
+        <environment names="Development">
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/web/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+            <script src="~/web/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment names="Staging,Production">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" asp-append-version="true"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"></script>
+            <script src="~/web/rs-plugin/js/jquery.themepunch.plugins.min.min.js" asp-append-version="true"></script>
+            <script src="~/web/rs-plugin/js/jquery.themepunch.revolution.min.min.js" asp-append-version="true"></script>
+            <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" asp-append-version="true"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"></script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
+        @RenderSection("Scripts", required: false)
+
+        <script defer asp-append-version="true">
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=563980970606511";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script defer asp-append-version="true" src="https://www.googletagmanager.com/gtag/js?id=UA-81624325-7"></script>
+    <script defer asp-append-version="true">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'UA-81624325-7');
+    </script>
+
+        <script defer type="application/ld+json" asp-append-version="true">
+            {
+            "@@context": "https://schema.org",
+            "@@type": "Person",
+            "name": "Hop Am Nhac Thanh",
+            "url": "https://hopamnhacthanh.net",
+            "sameAs": [
+            "https://www.facebook.com/hopamnhacthanh/"
+            ]
+            }
+        </script>
+
+</body>
+</html>
+
