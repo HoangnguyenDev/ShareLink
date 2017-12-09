@@ -9,12 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using HopAmNhacThanh.Models;
-using HopAmNhacThanh.Services;
-using HopAmNhacThanh.Models.AccountViewModels;
 using Microsoft.AspNetCore.Http;
-using HopAmNhacThanh.Controllers;
-using DoVuiHaiNao.Services;
+using ShareLink.Models;
+using ShareLink.Services;
+using ShareLink.Models.AccountViewModels;
 
 namespace HopAmNhacThanh.Areas.Admin.Controllers
 {
@@ -386,7 +384,7 @@ namespace HopAmNhacThanh.Areas.Admin.Controllers
         // GET: /Account/SendCode
         [HttpGet]
         [AllowAnonymous]
-        public async Task<ActionResult> SendCode(string returnUrl = null, bool reApplicationUserMe = false)
+        public async Task<ActionResult> SendCode(string returnUrl = null, bool RememberMe = false)
         {
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
@@ -395,7 +393,7 @@ namespace HopAmNhacThanh.Areas.Admin.Controllers
             }
             var userFactors = await _userManager.GetValidTwoFactorProvidersAsync(user);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
-            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, ReApplicationUserMe = reApplicationUserMe });
+            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = RememberMe });
         }
 
         //
@@ -433,14 +431,14 @@ namespace HopAmNhacThanh.Areas.Admin.Controllers
                 await _smsSender.SendSmsAsync(await _userManager.GetPhoneNumberAsync(user), message);
             }
 
-            return RedirectToAction(nameof(VerifyCode), new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, ReApplicationUserMe = model.ReApplicationUserMe });
+            return RedirectToAction(nameof(VerifyCode), new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, ReApplicationUserMe = model.RememberMe });
         }
 
         //
         // GET: /Account/VerifyCode
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> VerifyCode(string provider, bool reApplicationUserMe, string returnUrl = null)
+        public async Task<IActionResult> VerifyCode(string provider, bool RememberMe, string returnUrl = null)
         {
             // Require that the user has already logged in via username/password or external login
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
@@ -448,7 +446,7 @@ namespace HopAmNhacThanh.Areas.Admin.Controllers
             {
                 return View("Error");
             }
-            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, ReApplicationUserMe = reApplicationUserMe });
+            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = RememberMe });
         }
 
         //
@@ -466,7 +464,7 @@ namespace HopAmNhacThanh.Areas.Admin.Controllers
             // The following code protects for brute force attacks against the two factor codes.
             // If a user enters incorrect codes for a specified amount of time then the user account
             // will be locked out for a specified amount of time.
-            var result = await _signInManager.TwoFactorSignInAsync(model.Provider, model.Code, model.ReApplicationUserMe, model.ReApplicationUserBrowser);
+            var result = await _signInManager.TwoFactorSignInAsync(model.Provider, model.Code, model.RememberMe, model.RememberBrowser);
             if (result.Succeeded)
             {
                 return RedirectToLocal(model.ReturnUrl);

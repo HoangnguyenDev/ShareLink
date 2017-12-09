@@ -151,7 +151,7 @@ ul.socialicons li a:hover {
     height: 38px;
 }
 
-.avt button {
+.avt button .avt a {
     height: 38px;
     border: none;
     box-shadow: none;

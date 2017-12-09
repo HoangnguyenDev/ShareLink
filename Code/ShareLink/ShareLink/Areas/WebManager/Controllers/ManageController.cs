@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using HopAmNhacThanh.Models.ManageViewModels;
-using HopAmNhacThanh.Models;
-using HopAmNhacThanh.Services;
+using ShareLink.Models;
+using ShareLink.Services;
+using ShareLink.Models.ManageViewModels;
 
 namespace HopAmNhacThanh.Areas.Admin.Controllers
 {

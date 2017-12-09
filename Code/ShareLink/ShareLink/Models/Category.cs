@@ -13,6 +13,8 @@ namespace ShareLink.Models
         [MaxLength(60)]
         public string Name { get; set; }
         public string Description { get; set; }
+        public long? ImagesID { get; set; }
+        public Images Images { get; set; }
         [Display(Name = "Slug")]
         public string Slug { get; set; }
         [Display(Name = "Ghi chú")]

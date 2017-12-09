@@ -22,5 +22,10 @@ namespace ShareLink.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Images> Images { get; set; }
+
+        public DbSet<Like> Like { get; set; }
     }
 }

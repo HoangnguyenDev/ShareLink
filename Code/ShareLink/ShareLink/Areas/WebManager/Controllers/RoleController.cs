@@ -1,9 +1,9 @@
 ﻿using HopAmNhacThanh.Areas.WebManager.ViewModels;
-using HopAmNhacThanh.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using ShareLink.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

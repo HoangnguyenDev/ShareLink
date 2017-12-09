@@ -1,0 +1,50 @@
+﻿
+<div class="modal fade version-model" id="send-new" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <form asp-action="ReportSong" asp-controller="Song" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Chia sẻ Link</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="thank-report" style="display: none" class="alert alert-success alert-dismissable">Cảm ơn góp ý của bạn. Chúng tôi sẽ khắc phục sớm</div>
+                    <div id="form-report">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Link muốn chia sẻ" />
+                                    @*<span asp-validation-for="Name" class="text-danger"></span>*@
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select @*asp-for="Type"*@ class="form-control">
+                                        <option selected disabled>Gửi vào kênh</option>
+                                        <option value="1">Lời bài hát</option>
+                                        <option value="2">Nghe bài hát</option>
+                                        <option value="3">Sheet bài hát</option>
+                                        <option value="4">Tải về sheet bài hát</option>
+                                        <option value="5">Video</option>
+                                        <option value="6">Khác</option>
+                                    </select>
+                                    @*<span asp-validation-for="Name" class="text-danger"></span>*@
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea required id="error" @*asp-for="Error"*@ cols="5" rows="5" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer-report" class="modal-footer">
+                    <button id="reportSong" type="button" class="btn btn-danger">Chia sẻ</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>

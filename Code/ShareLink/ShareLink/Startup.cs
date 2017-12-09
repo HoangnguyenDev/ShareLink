@@ -159,24 +159,12 @@ namespace ShareLink
                 AutomaticAuthenticate = true,
                 AutomaticChallenge = true
             });
-            if (env.IsDevelopment())
-            {
-                //connect facebook localhost
-                app.UseFacebookAuthentication(new FacebookOptions()
-                {
-                    AppId = "707542496098719",
-                    AppSecret = "d5af1e86890606ff1705caede5893048"
-                });
-            }
-            else
-            {
                 //connect facebook in vps
                 app.UseFacebookAuthentication(new FacebookOptions()
                 {
-                    AppId = "155450018390476",
-                    AppSecret = "d8c237b1da4337e6af1559caae0e3302"
+                    AppId = "563980970606511",
+                    AppSecret = "b9fbbe9ab84d07fbf53d6f2a4b49dd18"
                 });
-            }
             // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
 
             app.UseMvc(routes =>

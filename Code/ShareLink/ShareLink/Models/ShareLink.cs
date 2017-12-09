@@ -12,7 +12,7 @@ namespace ShareLink.Models
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public long ID { get; set; }
-        [StringLength(100, MinimumLength = 3)]
+        [StringLength(200, MinimumLength = 3)]
         [Required]
         [Display(Name = "Thông điệp chính")]
         public string Name { get; set; }

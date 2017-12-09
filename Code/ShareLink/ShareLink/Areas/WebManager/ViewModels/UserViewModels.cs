@@ -1,5 +1,5 @@
-﻿using HopAmNhacThanh.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using ShareLink.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

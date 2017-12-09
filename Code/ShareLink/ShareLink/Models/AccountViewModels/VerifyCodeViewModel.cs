@@ -16,10 +16,10 @@ namespace ShareLink.Models.AccountViewModels
 
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Remember this browser?")]
+        [Display(Name = "RememberBrowser this browser?")]
         public bool RememberBrowser { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "ReApplicationUser me?")]
         public bool RememberMe { get; set; }
     }
 }
