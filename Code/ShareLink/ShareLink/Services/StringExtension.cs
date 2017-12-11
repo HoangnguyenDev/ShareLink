@@ -26,6 +26,7 @@ namespace ShareLink.Services
         public static string MakeUrlFriendly(this string value)
         {
             value = value.ToLowerInvariant().Replace(" ", "-");
+            value = value.ToLowerInvariant().Replace("'", "-");
             value = value.ToLowerInvariant().Replace(".", "");
             value = Regex.Replace(value, @"[^0-9a-z-]", string.Empty);
 
@@ -84,7 +85,11 @@ namespace ShareLink.Services
             Regex regex = new Regex("\\p{IsCombiningDiacriticalMarks}+");
             string temp = s.Normalize(NormalizationForm.FormD);
             temp = temp.ToLower();
-            return regex.Replace(temp, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D').Replace(" ", "-");
+            return regex.Replace(temp, String.Empty)
+                .Replace('\u0111', 'd')
+                .Replace('\u0110', 'D')
+                .Replace(" ", "-")
+                .Replace("'", "-");
         }
 
 

@@ -27,5 +27,6 @@ namespace ShareLink.Data
         public DbSet<Images> Images { get; set; }
 
         public DbSet<Like> Like { get; set; }
+        public DbSet<ShareLink.Models.SLink> SLink { get; set; }
     }
 }

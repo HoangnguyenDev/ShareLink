@@ -250,7 +250,11 @@ namespace ShareLink.Data.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<long?>("SLinkID");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("SLinkID");
 
                     b.ToTable("Comment");
                 });
@@ -278,9 +282,63 @@ namespace ShareLink.Data.Migrations
                     b.Property<long>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<long?>("SLinkID");
+
                     b.HasKey("ID");
 
+                    b.HasIndex("SLinkID");
+
                     b.ToTable("Like");
+                });
+
+            modelBuilder.Entity("ShareLink.Models.SLink", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Active")
+                        .HasMaxLength(1);
+
+                    b.Property<string>("Approved")
+                        .HasMaxLength(1);
+
+                    b.Property<string>("AuthorID");
+
+                    b.Property<int>("CategoryID");
+
+                    b.Property<DateTime?>("CreateDT");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(200);
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Note")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.Property<int>("Type");
+
+                    b.Property<string>("URL");
+
+                    b.Property<DateTime?>("UpdateDT");
+
+                    b.Property<int>("Views");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("AuthorID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.ToTable("SLink");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
@@ -325,6 +383,32 @@ namespace ShareLink.Data.Migrations
                     b.HasOne("ShareLink.Models.Images", "Images")
                         .WithMany()
                         .HasForeignKey("ImagesID");
+                });
+
+            modelBuilder.Entity("ShareLink.Models.Comment", b =>
+                {
+                    b.HasOne("ShareLink.Models.SLink")
+                        .WithMany("Comment")
+                        .HasForeignKey("SLinkID");
+                });
+
+            modelBuilder.Entity("ShareLink.Models.Like", b =>
+                {
+                    b.HasOne("ShareLink.Models.SLink")
+                        .WithMany("Like")
+                        .HasForeignKey("SLinkID");
+                });
+
+            modelBuilder.Entity("ShareLink.Models.SLink", b =>
+                {
+                    b.HasOne("ShareLink.Models.ApplicationUser", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorID");
+
+                    b.HasOne("ShareLink.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

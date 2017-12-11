@@ -69,6 +69,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\AutoTool\Controllers\" />
+    <Folder Include="Areas\AutoTool\Data\" />
+    <Folder Include="Areas\AutoTool\Models\" />
+    <Folder Include="Areas\AutoTool\Views\ShareLink\" />
     <Folder Include="Areas\WebManager\Controllers\" />
     <Folder Include="Areas\WebManager\Data\" />
     <Folder Include="Areas\WebManager\Models\" />

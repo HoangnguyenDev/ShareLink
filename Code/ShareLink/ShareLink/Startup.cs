@@ -48,7 +48,7 @@ namespace ShareLink
             services.AddMemoryCache();
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
             services.AddResponseCompression(options =>
-            {
+            { 
                 options.EnableForHttps = true;
                 //options.Providers.Add<CustomCompressionProvider>();
                 options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "image/svg+xml" });
@@ -101,6 +101,10 @@ namespace ShareLink
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+            services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddScoped<IShareLinkRepository, ShareLinkRepository>();
+            services.AddScoped<ISidebarRepository, SidebarRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddKendo();
         }
 

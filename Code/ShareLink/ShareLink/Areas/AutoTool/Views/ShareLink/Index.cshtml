@@ -1,0 +1,50 @@
+﻿@model AutoGetShareLinkViewModel
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="index" asp-controller="ShareLink" asp-area="AutoTool" method="get" class="form">
+                    <div class="pull-left txt">
+                        <select class="form-control" onchange="this.form.submit()" asp-for="URL">
+                            <option selected value="1">Vnexpress</option>
+                            <option value="2">Vietnamnet</option>
+                            <option value="3">Dantri</option>
+                        </select>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+
+            </div>
+        </div>
+        <div class="row">
+            @if (Model.ListLink != null)
+            {
+                @foreach (var item in Model.ListLink)
+                {
+                    <label>----------------------</label> <br />
+                    <div class="col-md-12">
+                        @Html.Raw(item.Title) <br />
+                        @Html.Raw(item.URL) <br />
+
+                    </div>
+                    <label>---------------------- </label>  <br />
+                }
+            }
+        </div>
+    </div>
+    <div class="panel-footer">
+        <form asp-action="send" asp-controller="ShareLink" asp-area="AutoTool" method="post" class="form">
+            <select name="time">
+                <option selected disabled></option>
+                <option value="1">10 phút</option>
+                <option value="2">30 phút</option>
+                <option value="3">1 giờ</option>
+                <option value="4">2 giờ</option>
+                <option value="5">6 giờ</option>
+            </select>
+            <button class="btn btn-primary" type="submit">
+                Gửi
+            </button>
+
+        </form>
+    </div>

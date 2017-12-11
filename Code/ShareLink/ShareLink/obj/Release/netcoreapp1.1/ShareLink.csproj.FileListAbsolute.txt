@@ -1,0 +1,12 @@
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\bin\Release\netcoreapp1.1\ShareLink.deps.json
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\bin\Release\netcoreapp1.1\ShareLink.runtimeconfig.json
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\bin\Release\netcoreapp1.1\ShareLink.runtimeconfig.dev.json
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\bin\Release\netcoreapp1.1\ShareLink.dll
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\bin\Release\netcoreapp1.1\ShareLink.pdb
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\obj\Release\netcoreapp1.1\ShareLink.csprojResolveAssemblyReference.cache
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\obj\Release\netcoreapp1.1\ShareLink.csproj.CoreCompileInputs.cache
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\obj\Release\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\obj\Release\netcoreapp1.1\ShareLink.AssemblyInfoInputs.cache
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\obj\Release\netcoreapp1.1\ShareLink.AssemblyInfo.cs
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\obj\Release\netcoreapp1.1\ShareLink.dll
+D:\GitHub\ShareLink\Code\ShareLink\ShareLink\obj\Release\netcoreapp1.1\ShareLink.pdb

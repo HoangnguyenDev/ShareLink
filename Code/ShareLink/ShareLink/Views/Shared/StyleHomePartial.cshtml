@@ -1,0 +1,56 @@
+﻿@model ShareLink.Models.WidgetViewModels.StyleHomeViewModel
+<!-- -->
+<div class="sidebarblock">
+    <h3>Link hot</h3>
+    <div class="divline"></div>
+
+    <div class="blocktxt">
+        <ul class="cats">
+            @foreach (var item in Model.ListHot)
+            {
+                <li>
+                    <a asp-controller="share" asp-action="Click" asp-route-id="@item.ID">
+                        @item.Title
+                        <span class="badge pull-right">0</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="sidebarblock">
+    <h3>Tìm chúng tôi trên facebook</h3>
+    <div class="divline"></div>
+    <div class="blocktxt">
+        <div class="fb-page" data-href="https://www.facebook.com/Chia-Sẻ-Link-Hot-1755968301100273/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/Chia-Sẻ-Link-Hot-1755968301100273/" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/Chia-Sẻ-Link-Hot-1755968301100273/">Chia sẻ hot</a>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+        <!-- -->
+        @*<div class="sidebarblock">
+                <h3>My Active Threads</h3>
+                <div class="divline"></div>
+                <div class="blocktxt">
+                    <a href="#">This Dock Turns Your iPhone Into a Bedside Lamp</a>
+                </div>
+                <div class="divline"></div>
+                <div class="blocktxt">
+                    <a href="#">Who Wins in the Battle for Power on the Internet?</a>
+                </div>
+                <div class="divline"></div>
+                <div class="blocktxt">
+                    <a href="#">Sony QX10: A Funky, Overpriced Lens Camera for Your Smartphone</a>
+                </div>
+                <div class="divline"></div>
+                <div class="blocktxt">
+                    <a href="#">FedEx Simplifies Shipping for Small Businesses</a>
+                </div>
+                <div class="divline"></div>
+                <div class="blocktxt">
+                    <a href="#">Loud and Brave: Saudi Women Set to Protest Driving Ban</a>
+                </div>
+            </div>*@
