@@ -80,15 +80,11 @@
             <script src="~/js/site.js" asp-append-version="true"></script>
         </environment>
         <environment names="Staging,Production">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" asp-append-version="true"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery"></script>
-            <script src="~/web/rs-plugin/js/jquery.themepunch.plugins.min.min.js" asp-append-version="true"></script>
-            <script src="~/web/rs-plugin/js/jquery.themepunch.revolution.min.min.js" asp-append-version="true"></script>
-            <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" asp-append-version="true"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"></script>
-            <script src="~/js/site.min.js" asp-append-version="true"></script>
+            <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"><script>
+            <script defer src="~/web/rs-plugin/js/jquery.themepunch.plugins.min.min.js" asp-append-version="true"></script>
+            <script defer src="~/web/rs-plugin/js/jquery.themepunch.revolution.min.min.js" asp-append-version="true"></script>
+            <script defer src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
+            <script defer src="~/js/site.min.js" asp-append-version="true"></script>
         </environment>
         @RenderSection("Scripts", required: false)
 

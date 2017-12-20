@@ -25,6 +25,7 @@ namespace ShareLink.Data
                 .Where(p => p.CreateDT < DateTime.Now)
                 .Where(p => p.IsDeleted == false)
                 .Where(p => p.Approved == "A")
+                .Take(10)
                 .ToListAsync();
 
             List<HotWidgetViewModel> list = new List<HotWidgetViewModel>();

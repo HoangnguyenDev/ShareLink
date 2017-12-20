@@ -1,15 +1,14 @@
 ﻿@model ShareLink.Models.WidgetViewModels.StyleHomeViewModel
 <!-- -->
 <div class="sidebarblock">
-    <h3>Link hot</h3>
+    <h3 style="color: red; font-weight:bold;margin-bottom: 0px;">Link hot</h3>
     <div class="divline"></div>
-
     <div class="blocktxt">
         <ul class="cats">
             @foreach (var item in Model.ListHot)
             {
                 <li>
-                    <a asp-controller="share" asp-action="Click" asp-route-id="@item.ID">
+                    <a asp-controller="sharelink" asp-action="Click" asp-route-id="@item.ID">
                         @item.Title
                         <span class="badge pull-right">0</span>
                     </a>
@@ -30,6 +29,20 @@
     </div>
 </div>
 
+<div class="sidebarblock">
+    <div class="blocktxt">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Tự động -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3409939582219225"
+             data-ad-slot="4889500928"
+             data-ad-format="auto"></ins>
+        <script defer>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</div>
         <!-- -->
         @*<div class="sidebarblock">
                 <h3>My Active Threads</h3>

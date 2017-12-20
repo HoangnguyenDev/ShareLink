@@ -5,9 +5,26 @@
 }
 
 @model List<ShareLink.Models.HomeViewModels.IndexViewModel>
-@*<div class="container">
+<div class="container">
     <div class="row">
-        <div class="col-lg-8 col-xs-12 col-md-8">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="margin-top:10px;">
+
+                <div class="panel-body">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Tự động -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3409939582219225"
+                         data-ad-slot="4889500928"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+        @*<div class="col-lg-8 col-xs-12 col-md-8">
             <div class="pull-left">
                 <a href="#" class="prevnext">
                     <i class="fa fa-angle-left"></i>
@@ -65,12 +82,12 @@
                 </a>
             </div>
             <div class="clearfix"></div>
-        </div>
+        </div>*@
     </div>
-</div>*@
+</div>
 
 
-<div class="container" style="margin-top: 40px;">
+<div class="container" style="margin-top: 5px;">
     <div class="row">
         <div class="col-lg-8 col-md-8">
             @if (Model.Any())
@@ -92,7 +109,7 @@
                     </div>
                     <div class="posttext pull-left">
                         <h2>
-                            <a asp-controller="sharelink" asp-action="Click" asp-route-id="@item.ID">@item.Title</a>
+                            <a asp-controller="sharelink" asp-action="Click" asp-route-id="@item.ID" target="_blank">@item.Title</a>
                         </h2>
                         <p class="post-orther-info">
                             <span><img width="18px" height="18px" src="@item.Author.Picture65x65" alt="TanNg">  @item.Author.FullName
@@ -201,4 +218,25 @@
         </div>
     </div>
 </div>*@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" style="margin-top:10px;">
 
+                <div class="panel-body">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- Tự động -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-3409939582219225"
+                         data-ad-slot="4889500928"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+	
